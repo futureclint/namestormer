@@ -10,7 +10,11 @@ As the name suggests, it is a way to brainstorm the naming of something. An API 
 
 ## Wireframe
 
+<img src="public/wireframe.png" alt="Wireframe" />
+
 ## Component Hierarchy
+
+<img src="public/component-hierarchy.png" alt="Component Hierarchy" />
 
 ## API and Data Sample
 
