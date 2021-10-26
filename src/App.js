@@ -28,12 +28,28 @@ function App() {
     <div className="App">
       <h1>Namestormer</h1>
 
+      <hr />
+
       {/* Display list of categories */}
       <ul>
       {categoryList.map((category) => (
         <li>{category.name}</li>
       ))}
       </ul>
+
+      <hr />
+
+      <form>
+        <label for="dropdown">Choose a category:</label>
+        <br />
+        <select name="dropdown">
+          {categoryList.map((category) => (
+            <option value={category.name}>{category.name}</option>
+          ))}
+        </select>
+        <br />
+        <button type="submit">Get Names</button>
+      </form>
 
     </div>
   );
