@@ -51,15 +51,6 @@ function App() {
 
       <hr />
 
-      {/* Display list of categories */}
-      <ul>
-      {categoryList.map((category) => (
-        <li>{category.name}</li>
-      ))}
-      </ul>
-
-      <hr />
-
       {/* Form: Get Names */}
       <form onSubmit={handleSubmit}>
         <label htmlFor="dropdown">Choose a category:</label>
