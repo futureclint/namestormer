@@ -11,6 +11,7 @@ const API_URL_CATEGORIES = `https://api.fungenerators.com/name/categories.json?s
 function App() {
 
   const [categoryList, setCategoryList] = useState([]);
+  const [category, setCategory] = useState('elf');
   const [toggleFetch, setToggleFetch] = useState(true);
 
   // Fetch category list on page load
@@ -22,7 +23,18 @@ function App() {
       setCategoryList(resp.data.contents[0]);
     }
     getCategoryList();
-  }, [toggleFetch]);
+  });
+
+  // Fetch new names on submit
+  const handleSubmit = async (ev) => {
+    // Prevent default form function
+    ev.preventDefault();
+
+    const newNames = 'names';
+
+    // Flip the value in state that triggers the API call
+    setToggleFetch(!toggleFetch);
+  }
 
   return (
     <div className="App">
@@ -39,10 +51,11 @@ function App() {
 
       <hr />
 
-      <form>
+      {/* Form: Get Names */}
+      <form onSubmit={handleSubmit}>
         <label for="dropdown">Choose a category:</label>
         <br />
-        <select name="dropdown">
+        <select name="dropdown" onChange={(ev) => setCategory(ev.target.value)}>
           {categoryList.map((category) => (
             <option value={category.name}>{category.name}</option>
           ))}
@@ -50,6 +63,9 @@ function App() {
         <br />
         <button type="submit">Get Names</button>
       </form>
+
+      {/* Output selected category */}
+      <p>Your category is: {category}</p>
 
     </div>
   );
