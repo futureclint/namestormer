@@ -78,7 +78,6 @@ function App() {
 
       <header>
         <h1>Namestormer</h1>
-        <h2>Brainstorm Naming</h2>
       </header>
 
       <hr />
