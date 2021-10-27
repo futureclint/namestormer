@@ -26,7 +26,23 @@ hr {
   background-color: var(--bg-light);
 }
 a {
+  border-bottom: 1px solid var(--bg);
   color: var(--yellow);
+  text-decoration: none;
+  transition: border 0.2s;
+}
+a:hover {
+  border-bottom: 1px solid var(--yellow);
+}
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+/* Header */
+h1 {
+  display: inline-block;
 }
 
 /* Footer */
