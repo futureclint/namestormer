@@ -69,7 +69,7 @@ function App() {
       setWorkingNames(resp.data.records);
     }
     getWorkingNames();
-  });
+  }, [toggleFetch]);
 
   return (
     <div className="App">
