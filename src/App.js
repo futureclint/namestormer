@@ -105,7 +105,7 @@ function App() {
         </ul>
         : <em>To start generate some random names</em> }
 
-        <button type="submit">Generate Random Names</button>
+        <input type="submit" value="Generate Random Names" />
       </form>
 
       <hr />
