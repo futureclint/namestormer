@@ -1,8 +1,20 @@
+/* Variables */
+
+:root {
+  --bg: #1b1c1d;
+  --bg-light: #3b3c3d;
+  --white: #fffff0;
+  --yellow: #ffff65;
+}
+
+/* App */
+
 body {
   padding: 30px;
-  background-color: #1b1c1d;
+  background-color: var(--bg);
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
-  color: white;
+  font-size: 14px;
+  color: var(--white);
 }
 h1, h2, h3, h4, h5, p {
   margin: 0;
@@ -11,8 +23,16 @@ hr {
   height: 1px;
   margin: 30px 0;
   border: none;
-  background-color: #3b3c3d;
+  background-color: var(--bg-light);
 }
 a {
-  color: dodgerblue;
+  color: var(--yellow);
+}
+
+/* Footer */
+
+footer {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
 }
