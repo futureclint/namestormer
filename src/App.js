@@ -31,7 +31,9 @@ function App() {
   // Fetch new random names
   const getRandomNames = async () => {
     const resp = await axios.get(API_URL_NAMES + category, {
-      headers: { 'X-Fungenerators-Api-Secret': process.env.REACT_APP_NAME_API_KEY }
+      headers: {
+        'X-Fungenerators-Api-Secret': process.env.REACT_APP_NAME_API_KEY
+      }
     });
     setRandomNames(resp.data.contents.names);
   }
