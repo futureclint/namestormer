@@ -61,15 +61,21 @@ function App() {
           ))}
         </select>
         <br />
+
+        {/* Output random names */}
+        { randomNames.length > 0 ?
+        <ul>
+          {randomNames.map((name) => (
+            <li>{name}</li>
+          ))}
+        </ul>
+        : <em>To start generate some random names</em> }
+        <br />
+
         <button type="submit">Get Names</button>
       </form>
 
-      {/* Output random names */}
-      <ul>
-        {randomNames.map((name) => (
-          <li>{name}</li>
-        ))}
-      </ul>
+
 
     </div>
   );
