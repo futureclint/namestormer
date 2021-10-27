@@ -88,13 +88,11 @@ function App() {
       <h2>Generate Names</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="dropdown">Choose a category:</label>
-        <br />
         <select name="dropdown" onChange={(ev) => setCategory(ev.target.value)}>
           {categories.map((category, idx) => (
             <option key={idx} value={category.name}>{category.name}</option>
           ))}
         </select>
-        <br />
 
         {/* Output random names */}
         { randomNames.length > 0 ?
@@ -106,7 +104,6 @@ function App() {
           ))}
         </ul>
         : <em>To start generate some random names</em> }
-        <br />
 
         <button type="submit">Generate Random Names</button>
       </form>
