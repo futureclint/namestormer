@@ -64,13 +64,15 @@ function App() {
         { randomNames.length > 0 ?
         <ul>
           {randomNames.map((name, idx) => (
-            <li key={idx}>{name}</li>
+            <li key={idx}>
+              <button>{name}</button>
+            </li>
           ))}
         </ul>
         : <em>To start generate some random names</em> }
         <br />
 
-        <button type="submit">Get Names</button>
+        <button type="submit">Generate Random Names</button>
       </form>
 
 
