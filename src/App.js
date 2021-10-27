@@ -54,8 +54,8 @@ function App() {
         <label htmlFor="dropdown">Choose a category:</label>
         <br />
         <select name="dropdown" onChange={(ev) => setCategory(ev.target.value)}>
-          {categoryList.map((category) => (
-            <option value={category.name}>{category.name}</option>
+          {categoryList.map((category, idx) => (
+            <option key={idx} value={category.name}>{category.name}</option>
           ))}
         </select>
         <br />
@@ -63,8 +63,8 @@ function App() {
         {/* Output random names */}
         { randomNames.length > 0 ?
         <ul>
-          {randomNames.map((name) => (
-            <li>{name}</li>
+          {randomNames.map((name, idx) => (
+            <li key={idx}>{name}</li>
           ))}
         </ul>
         : <em>To start generate some random names</em> }
