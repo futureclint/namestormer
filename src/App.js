@@ -14,7 +14,7 @@ function App() {
   const [categoryList, setCategoryList] = useState([]);
   const [category, setCategory] = useState('elf');
   const [randomNames, setRandomNames] = useState([]);
-  const [workingNameList, setWorkingNameList] = useState([]);
+  const [workingNames, setWorkingNames] = useState([]);
   const [working, setWorking] = useState('');
   const [toggleFetch, setToggleFetch] = useState(true);
 
@@ -63,12 +63,12 @@ function App() {
 
   // Fetch working name list from Airtable
   useEffect(() => {
-    const getWorkingNameList = async () => {
+    const getWorkingNames = async () => {
       const resp = await axios.get(API_URL_AIRTABLE);
-      setWorkingNameList(resp.data.records);
+      setWorkingNames(resp.data.records);
     }
-    getWorkingNameList();
-    console.log(workingNameList);
+    getWorkingNames();
+    console.log(workingNames);
   }, [toggleFetch]);
 
   return (
