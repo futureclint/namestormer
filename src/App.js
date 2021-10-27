@@ -11,7 +11,7 @@ const API_URL_AIRTABLE = `https://api.airtable.com/v0/app3x4dnCfUephaZE/Table%20
 
 function App() {
 
-  const [categoryList, setCategoryList] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [category, setCategory] = useState('elf');
   const [randomNames, setRandomNames] = useState([]);
   const [workingNames, setWorkingNames] = useState([]);
@@ -22,11 +22,11 @@ function App() {
   // NOTE: only retrieves the first 25 categories, but there are more
   // TODO: retrieve remaining categories and append to array
   useEffect(() => {
-    const getCategoryList = async () => {
+    const getCategories = async () => {
       const resp = await axios.get(API_URL_CATEGORIES);
-      setCategoryList(resp.data.contents[0]);
+      setCategories(resp.data.contents[0]);
     }
-    getCategoryList();
+    getCategories();
   }, [toggleFetch]);
 
   // Fetch new random names
@@ -82,7 +82,7 @@ function App() {
         <label htmlFor="dropdown">Choose a category:</label>
         <br />
         <select name="dropdown" onChange={(ev) => setCategory(ev.target.value)}>
-          {categoryList.map((category, idx) => (
+          {categories.map((category, idx) => (
             <option key={idx} value={category.name}>{category.name}</option>
           ))}
         </select>
