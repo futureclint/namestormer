@@ -18,6 +18,35 @@ As the name suggests, it is a way to brainstorm the naming of something. An API 
 
 ## API and Data Sample
 
+Fun Generators is used for name categories and names. Airtable is used for storing selected names.
+
+```
+{
+  "success": {
+    "total": null,
+    "start": 0,
+    "limit": 10
+  },
+  "contents": {
+    "category": "elf",
+    "variation": null,
+    "names": [
+      "Ashton Farsys",
+      "Tiriara Yllazorwyn",
+      "Tim Kelzeiros",
+      "Ildilyntra Xyrzumin",
+      "Robert Crajor",
+      "Ashryn Luthyra",
+      "Salihn Qinzeiros",
+      "Syndra Carwynn",
+      "Don Inaquinal",
+      "Thaola Magra"
+    ]
+  },
+  "copyright": "https:\/\/fungenerators.com\/"
+}
+```
+
 ## Project Schedule
 
 |     Day     | Deliverable | Status
