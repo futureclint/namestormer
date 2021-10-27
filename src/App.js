@@ -27,16 +27,14 @@ function App() {
     getCategoryList();
   });
 
+  // Fetch new random names
   const getRandomNames = async () => {
     const resp = await axios.get(`${API_URL_NAMES_BEG}${category}${API_URL_NAMES_END}`);
-    console.log(resp);
     setRandomNames(resp.data.contents.names);
-    console.log(`Category is ${category}`);
-    console.log(`${API_URL_NAMES_BEG}${category}${API_URL_NAMES_END}`);
   }
 
-  // Fetch new names on submit
-  const handleSubmit = async (ev) => {
+  // Handle form submission
+  const handleSubmit = (ev) => {
     // Prevent default form function
     ev.preventDefault();
     // Retrieve new random names
