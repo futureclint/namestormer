@@ -14,6 +14,8 @@ function App() {
   const [categoryList, setCategoryList] = useState([]);
   const [category, setCategory] = useState('elf');
   const [randomNames, setRandomNames] = useState([]);
+  const [workingNameList, setWorkingNameList] = useState([]);
+  const [working, setWorking] = useState('');
   const [toggleFetch, setToggleFetch] = useState(true);
 
   // Fetch category list on page load
@@ -25,7 +27,7 @@ function App() {
       setCategoryList(resp.data.contents[0]);
     }
     getCategoryList();
-  });
+  }, [toggleFetch]);
 
   // Fetch new random names
   const getRandomNames = async () => {
@@ -39,9 +41,35 @@ function App() {
     ev.preventDefault();
     // Retrieve new random names
     getRandomNames();
-    // Flip the value in state that triggers the API call
     setToggleFetch(!toggleFetch);
   }
+
+  // Add to Airtable (Working)
+  const addWorkingName = async (name) => {
+    // New API entry
+    const newName = {
+      records: [
+        {
+          fields: {
+            working: name
+          }
+        }
+      ]
+    }
+    // Post new API entry
+    await axios.post(API_URL_AIRTABLE, newName);
+    setToggleFetch(!toggleFetch);
+  }
+
+  // Fetch working name list from Airtable
+  useEffect(() => {
+    const getWorkingNameList = async () => {
+      const resp = await axios.get(API_URL_AIRTABLE);
+      setWorkingNameList(resp.data.records);
+    }
+    getWorkingNameList();
+    console.log(workingNameList);
+  }, [toggleFetch]);
 
   return (
     <div className="App">
@@ -65,7 +93,7 @@ function App() {
         <ul>
           {randomNames.map((name, idx) => (
             <li key={idx}>
-              <button>{name}</button>
+              <button onClick={(ev) => addWorkingName(name)}>{name}</button>
             </li>
           ))}
         </ul>
@@ -74,8 +102,6 @@ function App() {
 
         <button type="submit">Generate Random Names</button>
       </form>
-
-
 
     </div>
   );
