@@ -1,10 +1,10 @@
 /* Variables */
 
 :root {
-  --bg: #1b1c1d;
+  --bg:       #1b1c1d;
   --bg-light: #3b3c3d;
-  --white: #fffff0;
-  --yellow: #ffff65;
+  --white:    #fffff5;
+  --yellow:   #ffff65;
 }
 
 /* App */
