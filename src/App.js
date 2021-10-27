@@ -77,12 +77,15 @@ function App() {
     <div className="App">
 
       <header>
-        <h1>Namestormer</h1>
+        <a href="/">
+          <h1>Namestormer</h1>
+        </a>
       </header>
 
       <hr />
 
       {/* Form: Get Names */}
+      <h2>Generate Names</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="dropdown">Choose a category:</label>
         <br />
@@ -111,6 +114,7 @@ function App() {
       <hr />
 
       {/* Display working names */}
+      <h2>Selected Names</h2>
       { workingNames.length > 0 ?
       <ul>
         {workingNames.map((item, idx) => (
