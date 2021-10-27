@@ -68,8 +68,7 @@ function App() {
       setWorkingNames(resp.data.records);
     }
     getWorkingNames();
-    console.log(workingNames);
-  }, [toggleFetch]);
+  });
 
   return (
     <div className="App">
@@ -102,6 +101,17 @@ function App() {
 
         <button type="submit">Generate Random Names</button>
       </form>
+
+      <hr />
+
+      {/* Display working names */}
+      { workingNames.length > 0 ?
+      <ul>
+        {workingNames.map((item, idx) => (
+          <li key={idx}>{item.fields.working}</li>
+        ))}
+      </ul>
+      : <em>No working names</em> }
 
     </div>
   );
