@@ -73,7 +73,11 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Namestormer</h1>
+
+      <header>
+        <h1>Namestormer</h1>
+        <h2>Brainstorm Naming</h2>
+      </header>
 
       <hr />
 
@@ -113,6 +117,13 @@ function App() {
         ))}
       </ul>
       : <em>No working names</em> }
+
+      <hr />
+
+      <footer>
+        <span>&copy; Clint Gunter</span>
+        <span>Random names from <a href="https://fungenerators.com/api/namegen/">Fun Generators</a></span>
+      </footer>
 
     </div>
   );
