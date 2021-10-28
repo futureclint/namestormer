@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Route, Link } from 'react-router-dom';
 import './App.css';
 
 // API URLs
@@ -14,7 +13,6 @@ function App() {
   const [category, setCategory] = useState('elf');
   const [randomNames, setRandomNames] = useState([]);
   const [workingNames, setWorkingNames] = useState([]);
-  const [working, setWorking] = useState('');
   const [toggleFetch, setToggleFetch] = useState(true);
 
   // Fetch category list on page load
