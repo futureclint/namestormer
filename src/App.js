@@ -80,8 +80,6 @@ function App() {
         </a>
       </header>
 
-      <hr />
-
       <main>
 
         {/* Form: Get Names */}
@@ -108,8 +106,6 @@ function App() {
           <input type="submit" value="Generate Random Names" />
         </form>
 
-        <hr />
-
         {/* Display working names */}
         <h2>Selected Names</h2>
         { workingNames.length > 0 ?
@@ -123,8 +119,6 @@ function App() {
         : <em>No working names</em> }
 
       </main>
-
-      <hr />
 
       <footer>
         <span>&copy; Clint Gunter</span>

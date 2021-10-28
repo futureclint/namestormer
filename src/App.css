@@ -38,6 +38,11 @@ a:hover {
 
 /* Header */
 
+header {
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid var(--bg-light);
+}
 h1 {
   display: inline-block;
 }
@@ -88,4 +93,7 @@ footer {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
+  padding-top: 30px;
+  margin-top: 30px;
+  border-top: 1px solid var(--bg-light);
 }
