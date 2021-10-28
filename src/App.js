@@ -82,43 +82,47 @@ function App() {
 
       <hr />
 
-      {/* Form: Get Names */}
-      <h2>Generate Names</h2>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="dropdown">Choose a category:</label>
-        <select name="dropdown" onChange={(ev) => setCategory(ev.target.value)}>
-          {categories.map((category, idx) => (
-            <option key={idx} value={category.name}>{category.name}</option>
-          ))}
-        </select>
+      <main>
 
-        {/* Output random names */}
-        { randomNames.length > 0 ?
+        {/* Form: Get Names */}
+        <h2>Generate Names</h2>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="dropdown">Choose a category:</label>
+          <select name="dropdown" onChange={(ev) => setCategory(ev.target.value)}>
+            {categories.map((category, idx) => (
+              <option key={idx} value={category.name}>{category.name}</option>
+            ))}
+          </select>
+
+          {/* Output random names */}
+          { randomNames.length > 0 ?
+          <ul>
+            {randomNames.map((name, idx) => (
+              <li key={idx}>
+                <button class="pill generated" onClick={(ev) => addWorkingName(name)}>{name}</button>
+              </li>
+            ))}
+          </ul>
+          : <em>To start generate some random names</em> }
+
+          <input type="submit" value="Generate Random Names" />
+        </form>
+
+        <hr />
+
+        {/* Display working names */}
+        <h2>Selected Names</h2>
+        { workingNames.length > 0 ?
         <ul>
-          {randomNames.map((name, idx) => (
+          {workingNames.map((item, idx) => (
             <li key={idx}>
-              <button class="pill generated" onClick={(ev) => addWorkingName(name)}>{name}</button>
+              <button class="pill selected">{item.fields.working}</button>
             </li>
           ))}
         </ul>
-        : <em>To start generate some random names</em> }
+        : <em>No working names</em> }
 
-        <input type="submit" value="Generate Random Names" />
-      </form>
-
-      <hr />
-
-      {/* Display working names */}
-      <h2>Selected Names</h2>
-      { workingNames.length > 0 ?
-      <ul>
-        {workingNames.map((item, idx) => (
-          <li key={idx}>
-            <button class="pill selected">{item.fields.working}</button>
-          </li>
-        ))}
-      </ul>
-      : <em>No working names</em> }
+      </main>
 
       <hr />
 
