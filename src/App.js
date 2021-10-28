@@ -97,7 +97,7 @@ function App() {
         <ul>
           {randomNames.map((name, idx) => (
             <li key={idx}>
-              <button class="pill" onClick={(ev) => addWorkingName(name)}>{name}</button>
+              <button class="pill generated" onClick={(ev) => addWorkingName(name)}>{name}</button>
             </li>
           ))}
         </ul>
@@ -113,7 +113,9 @@ function App() {
       { workingNames.length > 0 ?
       <ul>
         {workingNames.map((item, idx) => (
-          <li key={idx}>{item.fields.working}</li>
+          <li key={idx}>
+            <button class="pill selected">{item.fields.working}</button>
+          </li>
         ))}
       </ul>
       : <em>No working names</em> }
