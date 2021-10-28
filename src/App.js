@@ -97,7 +97,7 @@ function App() {
         <ul>
           {randomNames.map((name, idx) => (
             <li key={idx}>
-              <button onClick={(ev) => addWorkingName(name)}>{name}</button>
+              <button class="pill" onClick={(ev) => addWorkingName(name)}>{name}</button>
             </li>
           ))}
         </ul>

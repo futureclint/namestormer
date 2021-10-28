@@ -3,6 +3,7 @@
 :root {
   --bg:       #1b1c1d;
   --bg-light: #3b3c3d;
+  --bg-lighter: #5c5c5d;
   --white:    #fffff5;
   --yellow:   #ffff65;
 }
@@ -41,7 +42,7 @@ h1 {
   display: inline-block;
 }
 
-/* Main */
+/* Form/List */
 
 form label,
 form select,
@@ -55,6 +56,25 @@ ul {
   padding: 0;
   margin-top: 15px;
   list-style-type: none;
+}
+
+/* Buttons */
+
+.pill {
+  padding: 6px 14px;
+  margin-bottom: 8px;
+  border: 0; /* removes default border */
+  border-radius: 5px;
+  background-color: var(--bg-light);
+  color: var(--white);
+  cursor: pointer;
+  transition: background-color 0.1s;
+}
+li:last-child .pill {
+  margin-bottom: 0;
+}
+.pill:hover {
+  background-color: var(--bg-lighter);
 }
 
 /* Footer */
