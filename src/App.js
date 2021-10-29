@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Route } from 'react-router-dom';
 import Header from './components/Header.js';
 import SectionHeader from './components/SectionHeader.js';
 import GenerateNamesForm from './components/GenerateNamesForm.js';
@@ -18,27 +19,29 @@ function App() {
 
       <main>
 
-        {/* Section: Generate Names */}
-        <section className="generate-names">
-          <SectionHeader title={'Generate Names'} />
-          <div className="section-body">
-            <GenerateNamesForm
-              setToggleFetch={setToggleFetch}
-              toggleFetch={toggleFetch}
-            />
-          </div>
-        </section>
+        <Route path="/" exact>
+          {/* Section: Generate Names */}
+          <section className="generate-names">
+            <SectionHeader title={'Generate Names'} />
+            <div className="section-body">
+              <GenerateNamesForm
+                setToggleFetch={setToggleFetch}
+                toggleFetch={toggleFetch}
+              />
+            </div>
+          </section>
 
-        {/* Section: Selected Names */}
-        <section className="selected-names">
-          <SectionHeader title={'Selected Names'} />
-          <div className="section-body">
-            <WorkingNamesList
-              setToggleFetch={setToggleFetch}
-              toggleFetch={toggleFetch}
-            />
-          </div>
-        </section>
+          {/* Section: Selected Names */}
+          <section className="selected-names">
+            <SectionHeader title={'Selected Names'} />
+            <div className="section-body">
+              <WorkingNamesList
+                setToggleFetch={setToggleFetch}
+                toggleFetch={toggleFetch}
+              />
+            </div>
+          </section>
+        </Route>
 
       </main>
 
