@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import RandomNamesList from './RandomNamesList.js';
 
 const GenerateNamesForm = (props) => {
 
@@ -38,22 +39,6 @@ const GenerateNamesForm = (props) => {
     props.setToggleFetch(!props.toggleFetch);
   }
 
-  // Add to Airtable (Working)
-  const addWorkingName = async (name) => {
-    // New API entry
-    const newName = {
-      records: [
-        {
-          fields: {
-            working: name
-          }
-        }
-      ]
-    }
-    // Post new API entry
-    await axios.post(props.API_URL_AIRTABLE, newName).then(props.setToggleFetch(!props.toggleFetch));
-  }
-
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="dropdown">Choose a category:</label>
@@ -63,16 +48,12 @@ const GenerateNamesForm = (props) => {
         ))}
       </select>
 
-      {/* Output random names */}
-      { randomNames.length > 0 ?
-      <ul>
-        {randomNames.map((name, idx) => (
-          <li key={idx}>
-            <button className="pill generated" onClick={(ev) => addWorkingName(name)}>{name}</button>
-          </li>
-        ))}
-      </ul>
-      : <em>To start generate some random names</em> }
+      <RandomNamesList
+        randomNames={randomNames}
+        API_URL_AIRTABLE={props.API_URL_AIRTABLE}
+        setToggleFetch={props.setToggleFetch}
+        toggleFetch={props.toggleFetch}
+      />
 
       <input type="submit" value="Generate Random Names" />
     </form>
