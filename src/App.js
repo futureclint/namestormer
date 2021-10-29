@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import Header from './components/Header.js';
 import './App.css';
 
 // API URLs
@@ -73,12 +74,7 @@ function App() {
   return (
     <div className="App">
 
-      <header>
-        <a href="/">
-          <h1>Namestormer</h1>
-        </a>
-        <span className="emoji">&#9889;</span>
-      </header>
+      <Header />
 
       <main>
 
