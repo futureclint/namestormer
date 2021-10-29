@@ -83,7 +83,7 @@ function App() {
       <main>
 
         {/* Section: Generate Names */}
-        <section class="generate-names">
+        <section className="generate-names">
           <h2>Generate Names</h2>
           <form onSubmit={handleSubmit}>
             <label htmlFor="dropdown">Choose a category:</label>
@@ -98,7 +98,7 @@ function App() {
             <ul>
               {randomNames.map((name, idx) => (
                 <li key={idx}>
-                  <button class="pill generated" onClick={(ev) => addWorkingName(name)}>{name}</button>
+                  <button className="pill generated" onClick={(ev) => addWorkingName(name)}>{name}</button>
                 </li>
               ))}
             </ul>
@@ -109,13 +109,13 @@ function App() {
         </section>
 
         {/* Section: Selected Names */}
-        <section class="selected-names">
+        <section className="selected-names">
           <h2>Selected Names</h2>
           { workingNames.length > 0 ?
           <ul>
             {workingNames.map((item, idx) => (
               <li key={idx}>
-                <button class="pill selected">{item.fields.working}</button>
+                <button className="pill selected">{item.fields.working}</button>
               </li>
             ))}
           </ul>
