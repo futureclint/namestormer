@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Header from './components/Header.js';
 import GenerateNamesForm from './components/GenerateNamesForm.js';
+import WorkingNamesList from './components/WorkingNamesList.js';
 import Footer from './components/Footer.js';
 import './App.css';
 
@@ -13,17 +14,7 @@ const API_URL_AIRTABLE = `https://api.airtable.com/v0/app3x4dnCfUephaZE/Table%20
 function App() {
 
   // State variables
-  const [workingNames, setWorkingNames] = useState([]);
   const [toggleFetch, setToggleFetch] = useState(true);
-
-  // Fetch working name list from Airtable
-  useEffect(() => {
-    const getWorkingNames = async () => {
-      const resp = await axios.get(API_URL_AIRTABLE);
-      setWorkingNames(resp.data.records);
-    }
-    getWorkingNames();
-  }, [toggleFetch]);
 
   return (
     <div className="App">
@@ -52,15 +43,11 @@ function App() {
           <h2>Selected Names</h2>
           <hr />
           <div className="section-body">
-            { workingNames.length > 0 ?
-            <ul>
-              {workingNames.map((item, idx) => (
-                <li key={idx}>
-                  <button className="pill selected">{item.fields.working}</button>
-                </li>
-              ))}
-            </ul>
-            : <em>No working names</em> }
+            <WorkingNamesList
+              API_URL_AIRTABLE={API_URL_AIRTABLE}
+              setToggleFetch={setToggleFetch}
+              toggleFetch={toggleFetch}
+            />
           </div>
         </section>
 
