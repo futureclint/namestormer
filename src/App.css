@@ -1,11 +1,11 @@
 /* VARIABLES ---------------------------------------------------------------- */
 
 :root {
-  --bg:       #1b1c1d;
-  --bg-light: #3b3c3d;
+  --bg:         #1b1c1d;
+  --bg-light:   #3b3c3d;
   --bg-lighter: #5c5c5d;
-  --white:    #fffff5;
-  --yellow:   #ffff65;
+  --white:      #fffff5;
+  --yellow:     #ffff65;
 }
 
 /* APP ---------------------------------------------------------------------- */
@@ -88,6 +88,7 @@ form input[type='submit'] {
 form select,
 form input[type='submit'] {
   margin: 20px 0;
+  cursor: pointer;
 }
 
 /* LIST --------------------------------------------------------------------- */
@@ -114,11 +115,13 @@ li:last-child .pill {
   margin-bottom: 0;
 }
 .pill:hover {
-  background-color: var(--bg-lighter);
+  background-color: var(--yellow);
+  color: var(--bg);
 }
 .pill.selected {
-  background-color: transparent;
   border: 1px solid var(--bg-light);
+  background-color: transparent;
+  color: var(--white);
   cursor: default;
 }
 
