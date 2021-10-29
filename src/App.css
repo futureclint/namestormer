@@ -43,11 +43,18 @@ a:hover {
     color: var(--bg);
 }
 
-/* constrain page width on very wide widths */
+/* Constrain page width on very wide widths */
 @media (min-width: 1200px) {
   .app-wrapper {
     max-width: 1200px;
     margin: 0 auto;
+  }
+}
+
+/* Reduce body padding on very narrow widths */
+@media (max-width: 720px) {
+  body {
+    padding: 15px;
   }
 }
 
@@ -72,6 +79,16 @@ h1 {
   font-size: 28px;
 }
 
+/* Match header bottom padding with body padding */
+@media (max-width: 720px) {
+  header {
+    padding-bottom: 15px;
+  }
+  h1, .emoji {
+    font-size: 24px;
+  }
+}
+
 /* SECTIONS ----------------------------------------------------------------- */
 
 main {
@@ -85,10 +102,10 @@ section {
 }
 section:first-child {
   padding-left: 0;
-  border-left: none;
 }
 section:last-child {
   padding-right: 0;
+  border-right: 1px solid var(--bg-light);
 }
 h2 {
   margin: 10px 15px;
@@ -96,6 +113,19 @@ h2 {
 }
 .section-body {
   padding: 20px;
+}
+
+/* Stack sections on very narrow page widths */
+@media (max-width: 720px) {
+  main {
+    flex-flow: column nowrap; /* stack */
+  }
+  section {
+    border-right: 1px solid var(--bg-light);
+  }
+  section:first-child {
+    border-bottom: 1px solid var(--bg-light);
+  }
 }
 
 /* FORM --------------------------------------------------------------------- */
@@ -155,4 +185,17 @@ footer {
   justify-content: space-between;
   padding: 30px 20px 0 20px;
   border-top: 1px solid var(--bg-light);
+}
+footer span {
+  display: block;
+  margin-bottom: 5px;
+
+}
+
+/* Match footer top padding with body padding */
+@media (max-width: 720px) {
+  footer {
+    flex-flow: column nowrap;
+    padding-top: 15px;
+  }
 }
