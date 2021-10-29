@@ -58,8 +58,7 @@ function App() {
       ]
     }
     // Post new API entry
-    await axios.post(API_URL_AIRTABLE, newName);
-    setToggleFetch(!toggleFetch);
+    await axios.post(API_URL_AIRTABLE, newName).then(setToggleFetch(!toggleFetch));
   }
 
   // Fetch working name list from Airtable
