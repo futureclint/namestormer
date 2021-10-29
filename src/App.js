@@ -85,42 +85,46 @@ function App() {
         <section className="generate-names">
           <h2>Generate Names</h2>
           <hr />
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="dropdown">Choose a category:</label>
-            <select name="dropdown" onChange={(ev) => setCategory(ev.target.value)}>
-              {categories.map((category, idx) => (
-                <option key={idx} value={category.name}>{category.name}</option>
-              ))}
-            </select>
+          <div className="section-body">
+            <form onSubmit={handleSubmit}>
+              <label htmlFor="dropdown">Choose a category:</label>
+              <select name="dropdown" onChange={(ev) => setCategory(ev.target.value)}>
+                {categories.map((category, idx) => (
+                  <option key={idx} value={category.name}>{category.name}</option>
+                ))}
+              </select>
 
-            {/* Output random names */}
-            { randomNames.length > 0 ?
-            <ul>
-              {randomNames.map((name, idx) => (
-                <li key={idx}>
-                  <button className="pill generated" onClick={(ev) => addWorkingName(name)}>{name}</button>
-                </li>
-              ))}
-            </ul>
-            : <em>To start generate some random names</em> }
+              {/* Output random names */}
+              { randomNames.length > 0 ?
+              <ul>
+                {randomNames.map((name, idx) => (
+                  <li key={idx}>
+                    <button className="pill generated" onClick={(ev) => addWorkingName(name)}>{name}</button>
+                  </li>
+                ))}
+              </ul>
+              : <em>To start generate some random names</em> }
 
-            <input type="submit" value="Generate Random Names" />
-          </form>
+              <input type="submit" value="Generate Random Names" />
+            </form>
+          </div>
         </section>
 
         {/* Section: Selected Names */}
         <section className="selected-names">
           <h2>Selected Names</h2>
           <hr />
-          { workingNames.length > 0 ?
-          <ul>
-            {workingNames.map((item, idx) => (
-              <li key={idx}>
-                <button className="pill selected">{item.fields.working}</button>
-              </li>
-            ))}
-          </ul>
-          : <em>No working names</em> }
+          <div className="section-body">
+            { workingNames.length > 0 ?
+            <ul>
+              {workingNames.map((item, idx) => (
+                <li key={idx}>
+                  <button className="pill selected">{item.fields.working}</button>
+                </li>
+              ))}
+            </ul>
+            : <em>No working names</em> }
+          </div>
         </section>
 
       </main>
