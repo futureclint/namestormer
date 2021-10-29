@@ -5,7 +5,6 @@ import RandomNamesList from './RandomNamesList.js';
 // API URLs
 const API_URL_CATEGORIES = `https://api.fungenerators.com/name/categories.json?start=0&limit=25&api_key=${process.env.REACT_APP_NAME_API_KEY}`;
 const API_URL_NAMES = `https://api.fungenerators.com/name/generate?limit=10&category=`;
-const API_URL_AIRTABLE = `https://api.airtable.com/v0/app3x4dnCfUephaZE/Table%201?api_key=${process.env.REACT_APP_AIRTABLE_API_KEY}`;
 
 const GenerateNamesForm = (props) => {
 
@@ -55,7 +54,6 @@ const GenerateNamesForm = (props) => {
 
       <RandomNamesList
         randomNames={randomNames}
-        API_URL_AIRTABLE={API_URL_AIRTABLE}
         setToggleFetch={props.setToggleFetch}
         toggleFetch={props.toggleFetch}
       />

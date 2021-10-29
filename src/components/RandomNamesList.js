@@ -1,5 +1,8 @@
 import axios from 'axios';
 
+// API URL
+const API_URL_AIRTABLE = `https://api.airtable.com/v0/app3x4dnCfUephaZE/Table%201?api_key=${process.env.REACT_APP_AIRTABLE_API_KEY}`;
+
 const RandomNamesList = (props) => {
 
   // Add to Airtable (Working)
@@ -15,7 +18,7 @@ const RandomNamesList = (props) => {
       ]
     }
     // Post new API entry
-    await axios.post(props.API_URL_AIRTABLE, newName).then(props.setToggleFetch(!props.toggleFetch));
+    await axios.post(API_URL_AIRTABLE, newName).then(props.setToggleFetch(!props.toggleFetch));
   }
 
   return (
