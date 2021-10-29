@@ -77,6 +77,7 @@ function App() {
         <a href="/">
           <h1>Namestormer</h1>
         </a>
+        <span className="emoji">&#9889;</span>
       </header>
 
       <main>
