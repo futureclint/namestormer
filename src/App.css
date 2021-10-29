@@ -1,4 +1,4 @@
-/* Variables */
+/* VARIABLES ---------------------------------------------------------------- */
 
 :root {
   --bg:       #1b1c1d;
@@ -8,7 +8,7 @@
   --yellow:   #ffff65;
 }
 
-/* App */
+/* APP ---------------------------------------------------------------------- */
 
 body {
   padding: 30px;
@@ -36,7 +36,7 @@ a:hover {
   border-bottom: 1px solid var(--yellow);
 }
 
-/* Header */
+/* HEADER ------------------------------------------------------------------- */
 
 header {
   padding-bottom: 30px;
@@ -47,12 +47,13 @@ h1 {
   display: inline-block;
 }
 
-/* Sections */
+/* SECTIONS ----------------------------------------------------------------- */
+
 section {
 
 }
 
-/* Form/List */
+/* FORM --------------------------------------------------------------------- */
 
 form label,
 form select,
@@ -62,13 +63,16 @@ form input[type='submit'] {
   display: block;
   margin-top: 15px;
 }
+
+/* LIST --------------------------------------------------------------------- */
+
 ul {
   padding: 0;
   margin-top: 15px;
   list-style-type: none;
 }
 
-/* Buttons */
+/* BUTTONS ------------------------------------------------------------------ */
 
 .pill {
   padding: 6px 14px;
@@ -92,7 +96,7 @@ li:last-child .pill {
   cursor: default;
 }
 
-/* Footer */
+/* FOOTER ------------------------------------------------------------------- */
 
 footer {
   display: flex;
