@@ -73,3 +73,19 @@ Fun Generators is used for name categories and names. Airtable is used for stori
 | Readme | M | 1hr | 1.5hrs
 
 ## SWOT Analysis
+
+### Strengths
+
+Strong but simple idea with a lot of opportunities for growth in terms of additional features.
+
+### Weakness
+
+API has limitations and caches without the option to not cache, so will have to load a lot of items initially from the API, then store locally, then cycle through them with subsequent clicks, I think. The current feature set is extremely limited because of trouble with the API.
+
+### Opportunities
+
+There is a lot of opportunity to add features and styles. The next feature this needs is the ability to delete items. After that, editing chosen items. Adding styles to be able to drag elements to reorder them would be neat as well.
+
+### Threats
+
+The API was difficult and extremely limited, and on top of that costs $5/month.
