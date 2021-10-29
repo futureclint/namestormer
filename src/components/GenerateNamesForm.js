@@ -2,6 +2,11 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import RandomNamesList from './RandomNamesList.js';
 
+// API URLs
+const API_URL_CATEGORIES = `https://api.fungenerators.com/name/categories.json?start=0&limit=25&api_key=${process.env.REACT_APP_NAME_API_KEY}`;
+const API_URL_NAMES = `https://api.fungenerators.com/name/generate?limit=10&category=`;
+const API_URL_AIRTABLE = `https://api.airtable.com/v0/app3x4dnCfUephaZE/Table%201?api_key=${process.env.REACT_APP_AIRTABLE_API_KEY}`;
+
 const GenerateNamesForm = (props) => {
 
   // State Variables
@@ -14,7 +19,7 @@ const GenerateNamesForm = (props) => {
   // TODO: retrieve remaining categories and append to array
   useEffect(() => {
     const getCategories = async () => {
-      const resp = await axios.get(props.API_URL_CATEGORIES);
+      const resp = await axios.get(API_URL_CATEGORIES);
       setCategories(resp.data.contents[0]);
     }
     getCategories();
@@ -22,7 +27,7 @@ const GenerateNamesForm = (props) => {
 
   // Fetch new random names
   const getRandomNames = async () => {
-    const resp = await axios.get(props.API_URL_NAMES + category, {
+    const resp = await axios.get(API_URL_NAMES + category, {
       headers: {
         'X-Fungenerators-Api-Secret': process.env.REACT_APP_NAME_API_KEY
       }
@@ -50,7 +55,7 @@ const GenerateNamesForm = (props) => {
 
       <RandomNamesList
         randomNames={randomNames}
-        API_URL_AIRTABLE={props.API_URL_AIRTABLE}
+        API_URL_AIRTABLE={API_URL_AIRTABLE}
         setToggleFetch={props.setToggleFetch}
         toggleFetch={props.toggleFetch}
       />

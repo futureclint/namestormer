@@ -1,6 +1,9 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
+// API URL
+const API_URL_AIRTABLE = `https://api.airtable.com/v0/app3x4dnCfUephaZE/Table%201?api_key=${process.env.REACT_APP_AIRTABLE_API_KEY}`;
+
 const WorkingNamesList = (props) => {
 
   // State Variables
@@ -9,7 +12,7 @@ const WorkingNamesList = (props) => {
   // Fetch working name list from Airtable
   useEffect(() => {
     const getWorkingNames = async () => {
-      const resp = await axios.get(props.API_URL_AIRTABLE);
+      const resp = await axios.get(API_URL_AIRTABLE);
       setWorkingNames(resp.data.records);
     }
     getWorkingNames();
