@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Header from './components/Header.js';
+import Footer from './components/Footer.js';
 import './App.css';
 
 // API URLs
@@ -126,10 +127,7 @@ function App() {
 
       </main>
 
-      <footer>
-        <span>&copy; Clint Gunter</span>
-        <span>Random names from <a href="https://fungenerators.com/api/namegen/">Fun Generators</a></span>
-      </footer>
+      <Footer />
 
     </div>
   );
