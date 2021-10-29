@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Header from './components/Header.js';
+import SectionHeader from './components/SectionHeader.js';
 import GenerateNamesForm from './components/GenerateNamesForm.js';
 import WorkingNamesList from './components/WorkingNamesList.js';
 import Footer from './components/Footer.js';
@@ -24,8 +25,7 @@ function App() {
 
         {/* Section: Generate Names */}
         <section className="generate-names">
-          <h2>Generate Names</h2>
-          <hr />
+          <SectionHeader title={'Generate Names'} />
           <div className="section-body">
             <GenerateNamesForm
               API_URL_CATEGORIES={API_URL_CATEGORIES}
@@ -39,8 +39,7 @@ function App() {
 
         {/* Section: Selected Names */}
         <section className="selected-names">
-          <h2>Selected Names</h2>
-          <hr />
+          <SectionHeader title={'Selected Names'} />
           <div className="section-body">
             <WorkingNamesList
               API_URL_AIRTABLE={API_URL_AIRTABLE}
