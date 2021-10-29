@@ -12,7 +12,7 @@ function App() {
   const [toggleFetch, setToggleFetch] = useState(true);
 
   return (
-    <div className="App">
+    <div className="app-wrapper">
 
       <Header />
 

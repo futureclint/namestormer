@@ -17,6 +17,9 @@ body {
   font-size: 14px;
   color: var(--white);
 }
+.app-wrapper {
+
+}
 h1, h2, h3, h4, h5, p {
   margin: 0;
 }
@@ -40,13 +43,21 @@ a:hover {
     color: var(--bg);
 }
 
+/* constrain page width on very wide widths */
+@media (min-width: 1200px) {
+  .app-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
 /* HEADER ------------------------------------------------------------------- */
 
 header {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  padding-bottom: 30px;
+  padding: 0 20px 30px 20px;
   border-bottom: 1px solid var(--bg-light);
 }
 h1 {
@@ -142,6 +153,6 @@ footer {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  padding-top: 30px;
+  padding: 30px 20px 0 20px;
   border-top: 1px solid var(--bg-light);
 }
