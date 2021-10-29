@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Header from './components/Header.js';
+import GenerateNamesForm from './components/GenerateNamesForm.js';
 import Footer from './components/Footer.js';
 import './App.css';
 
@@ -11,57 +12,9 @@ const API_URL_AIRTABLE = `https://api.airtable.com/v0/app3x4dnCfUephaZE/Table%20
 
 function App() {
 
-  const [categories, setCategories] = useState([]);
-  const [category, setCategory] = useState('elf');
-  const [randomNames, setRandomNames] = useState([]);
+  // State variables
   const [workingNames, setWorkingNames] = useState([]);
   const [toggleFetch, setToggleFetch] = useState(true);
-
-  // Fetch category list on page load
-  // NOTE: only retrieves the first 25 categories, but there are more
-  // TODO: retrieve remaining categories and append to array
-  useEffect(() => {
-    const getCategories = async () => {
-      const resp = await axios.get(API_URL_CATEGORIES);
-      setCategories(resp.data.contents[0]);
-    }
-    getCategories();
-  }, []);
-
-  // Fetch new random names
-  const getRandomNames = async () => {
-    const resp = await axios.get(API_URL_NAMES + category, {
-      headers: {
-        'X-Fungenerators-Api-Secret': process.env.REACT_APP_NAME_API_KEY
-      }
-    });
-    setRandomNames(resp.data.contents.names);
-  }
-
-  // Handle form submission
-  const handleSubmit = (ev) => {
-    // Prevent default form function
-    ev.preventDefault();
-    // Retrieve new random names
-    getRandomNames();
-    setToggleFetch(!toggleFetch);
-  }
-
-  // Add to Airtable (Working)
-  const addWorkingName = async (name) => {
-    // New API entry
-    const newName = {
-      records: [
-        {
-          fields: {
-            working: name
-          }
-        }
-      ]
-    }
-    // Post new API entry
-    await axios.post(API_URL_AIRTABLE, newName).then(setToggleFetch(!toggleFetch));
-  }
 
   // Fetch working name list from Airtable
   useEffect(() => {
@@ -84,27 +37,13 @@ function App() {
           <h2>Generate Names</h2>
           <hr />
           <div className="section-body">
-            <form onSubmit={handleSubmit}>
-              <label htmlFor="dropdown">Choose a category:</label>
-              <select name="dropdown" onChange={(ev) => setCategory(ev.target.value)}>
-                {categories.map((category, idx) => (
-                  <option key={idx} value={category.name}>{category.name}</option>
-                ))}
-              </select>
-
-              {/* Output random names */}
-              { randomNames.length > 0 ?
-              <ul>
-                {randomNames.map((name, idx) => (
-                  <li key={idx}>
-                    <button className="pill generated" onClick={(ev) => addWorkingName(name)}>{name}</button>
-                  </li>
-                ))}
-              </ul>
-              : <em>To start generate some random names</em> }
-
-              <input type="submit" value="Generate Random Names" />
-            </form>
+            <GenerateNamesForm
+              API_URL_CATEGORIES={API_URL_CATEGORIES}
+              API_URL_NAMES={API_URL_NAMES}
+              API_URL_AIRTABLE={API_URL_AIRTABLE}
+              setToggleFetch={setToggleFetch}
+              toggleFetch={toggleFetch}
+            />
           </div>
         </section>
 
