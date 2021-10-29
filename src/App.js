@@ -24,7 +24,7 @@ function App() {
       setCategories(resp.data.contents[0]);
     }
     getCategories();
-  }, [toggleFetch]);
+  }, []);
 
   // Fetch new random names
   const getRandomNames = async () => {
