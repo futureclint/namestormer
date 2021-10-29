@@ -76,7 +76,7 @@ Fun Generators is used for name categories and names. Airtable is used for stori
 
 ### Strengths
 
-Strong but simple idea with a lot of opportunities for growth in terms of additional features.
+Strong but simple idea with a lot of opportunities for growth in terms of additional features. Allows the user to experiment with new names from multiple categories.
 
 ### Weakness
 
@@ -88,4 +88,4 @@ There is a lot of opportunity to add features and styles. The next feature this 
 
 ### Threats
 
-The API was difficult and extremely limited, and on top of that costs $5/month.
+The API was difficult and extremely limited, and on top of that costs $5/month. I had to add a Route and Link aspect at the last minute to technically fulfill the project requirements, since this is a single-page idea.
