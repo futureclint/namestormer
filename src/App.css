@@ -22,7 +22,7 @@ h1, h2, h3, h4, h5, p {
 }
 hr {
   height: 1px;
-  margin: 30px 0;
+  margin: 10px 0 30px 0;
   border: none;
   background-color: var(--bg-light);
 }
@@ -40,7 +40,6 @@ a:hover {
 
 header {
   padding-bottom: 30px;
-  margin-bottom: 30px;
   border-bottom: 1px solid var(--bg-light);
 }
 h1 {
@@ -49,8 +48,24 @@ h1 {
 
 /* SECTIONS ----------------------------------------------------------------- */
 
+main {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
 section {
-
+  flex-grow: 1;
+  border-left: 1px solid var(--bg-light);
+}
+section:first-child {
+  padding-left: 0;
+  border-left: none;
+}
+section:last-child {
+  padding-right: 0;
+}
+h2 {
+  margin: 10px 15px;
 }
 
 /* FORM --------------------------------------------------------------------- */
@@ -103,6 +118,5 @@ footer {
   flex-flow: row nowrap;
   justify-content: space-between;
   padding-top: 30px;
-  margin-top: 30px;
   border-top: 1px solid var(--bg-light);
 }

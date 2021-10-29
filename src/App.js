@@ -84,6 +84,7 @@ function App() {
         {/* Section: Generate Names */}
         <section className="generate-names">
           <h2>Generate Names</h2>
+          <hr />
           <form onSubmit={handleSubmit}>
             <label htmlFor="dropdown">Choose a category:</label>
             <select name="dropdown" onChange={(ev) => setCategory(ev.target.value)}>
@@ -110,6 +111,7 @@ function App() {
         {/* Section: Selected Names */}
         <section className="selected-names">
           <h2>Selected Names</h2>
+          <hr />
           { workingNames.length > 0 ?
           <ul>
             {workingNames.map((item, idx) => (
